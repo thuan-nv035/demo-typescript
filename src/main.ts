@@ -1,43 +1,56 @@
 import IUser from "./counter"
 import { Employee } from "./model"
 
+//string
 const username: string = 'thuan'
-let age: number
-let isLoading: boolean = false
 
+// number
+let age: number
 let second: number = 0o377  // octal
 let third: number = 0x37CF  // hexadecimal
 let fourth: number = 0b11010 // binary
 
-let stringArr = ['one', 'hey', 'Dave']
+// boolean
+let isLoading: boolean = false
 
-let guitars = ['Strat', 'Les Paul', 5150]
+// array
+let stringArr: string[] = ['one', 'hey', 'Dave']
 
-let mixedData = ['EVH', 1984, true]
+let guitars: (string | number)[] = ['Strat', 'Les Paul', 5150] // multy type array or tuple
 
-stringArr[0] = 'John'
-stringArr.push('hey')
+// Tuple 
+let myTuple: [string, number, boolean] = ['Dave', 42, true]
 
-console.log(stringArr)
+/*
+enum
++ numeric enum
++ string enum
++ heterogeneous enum
+*/
 
-guitars[0] = 1984
-guitars.unshift('Jim')
 
-let test = []
-let bands: string[] = []
-bands.push('Van')
 
-// union
+// union : allows us to use more than one data type for a variable or a function parameter. This is called union type.
 
 let code: (string | number)
 
 code = 1
 code = 'ABC'
 
-// Tuple 
-let myTuple: [string, number, boolean] = ['Dave', 42, true]
+// any 
 
-let mixed = ['John', 1, false]
+let title: any = 'hello world'
+title = 2
+
+let arr: any[] = ['hello', true]
+arr.push(2)
+
+// void 
+
+function sayHi(): void {
+  console.log('Hello World')
+}
+
 
 // Objects
 let myObj: object
@@ -96,15 +109,6 @@ enum Grade {
 
 console.log(Grade.U)
 
-// any
-let something: any = '123'
-something = true
-
-// void 
-
-function sayHi(): void {
-  console.log('Hello World')
-}
 
 // function
 
