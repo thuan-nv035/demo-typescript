@@ -1,5 +1,4 @@
 import IUser from "./counter"
-import { Employee } from "./model"
 
 //string
 const username: string = 'thuan'
@@ -56,7 +55,6 @@ function sayHi(): void {
 let myObj: object
 myObj = []
 console.log(typeof myObj)
-myObj = bands
 myObj = {}
 
 const exampleObj = {
@@ -150,10 +148,6 @@ const myImg = document.getElementById('#img') as HTMLImageElement
 const nextImg = <HTMLImageElement>document.getElementById('#img')
 const button: HTMLButtonElement | null = document.querySelector('button')
 
-
-let emp = new Employee(1, 'thuan')
-emp.displayEmployee()
-
 // Awaited - helps us with the ReturnType of a Promise 
 
 interface User {
@@ -179,3 +173,28 @@ type FetchUsersReturnType = Awaited<ReturnType<typeof fetchUsers>>
 
 fetchUsers().then(users => console.log(users))
 
+interface IPersons {
+  name: string
+  display(): void
+}
+
+interface IEmployee {
+  code: number
+}
+
+class Employee implements IPersons, IEmployee {
+  code: number
+  name: string
+
+  constructor(code: number, name: string) {
+    this.code = code
+    this.name = name
+  }
+
+  display(): void {
+    console.log('name = ' + this.name + " code = " + this.code)
+  }
+}
+
+let per: IPersons = new Employee(111, "thuan")
+per.display()
